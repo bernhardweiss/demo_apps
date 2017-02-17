@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_column">
+    <sp_column action="INSERT_OR_UPDATE">
+        <class_name/>
+        <order>2</order>
+        <size/>
+        <size_lg/>
+        <size_sm>4</size_sm>
+        <size_xs/>
+        <sp_row display_value="1">59210167dbcf62006ab3d790cf961942</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-18 14:43:16</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>192149a7dbcf62006ab3d790cf96193d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_column_192149a7dbcf62006ab3d790cf96193d</sys_update_name>
+        <sys_updated_by>chris.hann</sys_updated_by>
+        <sys_updated_on>2016-11-18 14:43:16</sys_updated_on>
+    </sp_column>
+</record_update>

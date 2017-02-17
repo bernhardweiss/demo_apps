@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition/>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>comments-o</glyph>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>Chat</label>
+        <order>300</order>
+        <record_script/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page/>
+        <sp_rectangle_menu display_value="Domain Menu: Human Resources">f7b7dd63db03a2006ab3d790cf961973</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>Shane.George</sys_created_by>
+        <sys_created_on>2016-12-03 09:50:40</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>610e0154dbe3a60029997416bf9619b5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Chat</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_610e0154dbe3a60029997416bf9619b5</sys_update_name>
+        <sys_updated_by>Shane.George</sys_updated_by>
+        <sys_updated_on>2016-12-03 09:53:30</sys_updated_on>
+        <table/>
+        <type>url</type>
+        <url>/$chat_support.do?queueID=aeb40252d7133100816403548e610363</url>
+    </sp_rectangle_menu_item>
+</record_update>

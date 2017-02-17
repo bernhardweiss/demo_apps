@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_snc_snsc_ssp_service_domain">
+    <x_snc_snsc_ssp_service_domain action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <bg_image display_value="x_snc_snsc_ssp-finance.bg.jpg">39e2c2bbdb87a200409e7a1ebf9619f5</bg_image>
+        <logo/>
+        <menu display_value="Domain Menu: Procure to Pay">2a81f0bddbdf620029997416bf96198a</menu>
+        <name>Procure to Pay</name>
+        <order>10</order>
+        <portal display_value="Process Portal">c018b359dbd7620029997416bf9619d0</portal>
+        <sys_class_name>x_snc_snsc_ssp_service_domain</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-24 15:40:30</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>59b744a1db1b620029997416bf9619d7</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Procure to Pay</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>x_snc_snsc_ssp_service_domain_59b744a1db1b620029997416bf9619d7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-25 13:33:59</sys_updated_on>
+    </x_snc_snsc_ssp_service_domain>
+</record_update>

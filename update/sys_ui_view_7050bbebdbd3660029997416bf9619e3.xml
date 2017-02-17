@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>sys_popup,hr_onboarding_dashboard</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-12-01 13:44:19</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7050bbebdbd3660029997416bf9619e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sys_popup,hr_onboarding_dashboard</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sys_ui_view_7050bbebdbd3660029997416bf9619e3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-12-01 13:44:19</sys_updated_on>
+        <title>Sys_popup,hr_onboarding_dashboard</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

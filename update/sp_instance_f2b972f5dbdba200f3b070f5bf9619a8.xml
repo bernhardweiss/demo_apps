@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <short_description>Supplier Status</short_description>
+        <size>md</size>
+        <sp_column display_value="1">b3a9f2f5dbdba200f3b070f5bf9619d7</sp_column>
+        <sp_widget display_value="supplier status">59f77a75dbdba200f3b070f5bf961965</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-25 23:16:26</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>f2b972f5dbdba200f3b070f5bf9619a8</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Supplier Status</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_instance_f2b972f5dbdba200f3b070f5bf9619a8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-26 00:43:23</sys_updated_on>
+        <title>Supplier Status</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"number_of_services": {
+		"value": 10,
+		"displayValue": "10"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+</record_update>

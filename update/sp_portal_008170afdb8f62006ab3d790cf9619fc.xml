@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables>$brand-primary: #07569F;
+$body-bg: #f0f3f4;
+$state-success-text: #5cb85c;
+$sp-homepage-bg: #e7e9eb;
+$sp-navbar-divider-color: #07569F;
+$text-color: #717171;
+$sp-logo-margin-y: .5rem;
+$navbar-inverse-link-hover-color: #07569F;
+$panel-bg: #fff;
+$brand-success: #5cb85c;
+$navbar-inverse-bg: #ffffff;
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
+$sp-tagline-color: white;
+$navbar-inverse-link-color: #717171;
+$brand-info: #5bc0de;
+$link-color: #428bca;
+$sp-logo-margin-x: 15px;
+$btn-default-bg: #fff;
+$text-muted: #979797;
+</css_variables>
+        <default>false</default>
+        <homepage display_value="sharedservices">85210167dbcf62006ab3d790cf961938</homepage>
+        <icon/>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page display_value="login">6995a144cb11120000f8d856634c9c25</login_page>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config><![CDATA[[{
+	"tagline": {
+		"table" : "sp_instance",
+		"sys_id" : "5b149fd4dbd7e2006ab3d790cf961935",
+		"field" : "title"
+	},
+	"hero_background": {
+		"table" : "sp_container",
+		"sys_id" : "4d210167dbcf62006ab3d790cf961938",
+		"field" : "background_image"
+	},
+	"hero_background_color": {
+		"table" : "sp_container",
+		"sys_id" : "4d210167dbcf62006ab3d790cf961938",
+		"field" : "background_color"
+	}
+}]]]></quick_start_config>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sp_chat_queue display_value="Shared Services Support">e2159e81db9b26006ab3d790cf96190e</sp_chat_queue>
+        <sp_rectangle_menu display_value="SP Header Menu">d150fd31cb10020000f8d856634c9ce6</sp_rectangle_menu>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-18 13:35:16</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>008170afdb8f62006ab3d790cf9619fc</sys_id>
+        <sys_mod_count>60</sys_mod_count>
+        <sys_name>Shared Service Portal</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_portal_008170afdb8f62006ab3d790cf9619fc</sys_update_name>
+        <sys_updated_by>bernhard.weiss</sys_updated_by>
+        <sys_updated_on>2017-01-27 09:43:21</sys_updated_on>
+        <theme display_value="Shared Services">49a174afdb8f62006ab3d790cf961989</theme>
+        <title>Shared Service Portal</title>
+        <url_suffix>sharedservices</url_suffix>
+    </sp_portal>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>logo</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>2698</size_bytes>
+        <size_compressed>2721</size_compressed>
+        <sys_created_by>bernhard.weiss</sys_created_by>
+        <sys_created_on>2017-01-27 09:42:19</sys_created_on>
+        <sys_id>db8bd00e37e83a0063dd1d8643990e7f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>bernhard.weiss</sys_updated_by>
+        <sys_updated_on>2017-01-27 09:42:19</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>008170afdb8f62006ab3d790cf9619fc</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="db8bd00e37e83a0063dd1d8643990e7f">db8bd00e37e83a0063dd1d8643990e7f</sys_attachment>
+        <sys_created_by>bernhard.weiss</sys_created_by>
+        <sys_created_on>2017-01-27 09:42:19</sys_created_on>
+        <sys_id>1f8bd00e37e83a0063dd1d8643990e7f</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>3616</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="db8bd00e37e83a0063dd1d8643990e7f">db8bd00e37e83a0063dd1d8643990e7f</sys_attachment>
+        <sys_created_by>bernhard.weiss</sys_created_by>
+        <sys_created_on>2017-01-27 09:42:19</sys_created_on>
+        <sys_id>9f8bd00e37e83a0063dd1d8643990e7f</sys_id>
+    </sys_attachment_doc>
+</record_update>

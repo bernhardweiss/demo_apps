@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($window, $location) {
+  var c = this;
+  c.getPortalURL = function(domain) {
+	  return '/' + domain.portal.url_suffix;
+  };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>x-snc-snsc-ssp-homemenu</id>
+        <internal>false</internal>
+        <link/>
+        <name>Enterprise Shared Service Directory</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var serviceDomainGR = new GlideRecord('x_snc_snsc_ssp_service_domain');
+	serviceDomainGR.addActiveQuery();
+	serviceDomainGR.orderBy('order');
+	serviceDomainGR.query();
+	
+	data.domains = [];
+	
+	while (serviceDomainGR.next()) {
+		data.domains.push({
+			sys_id: serviceDomainGR.getUniqueValue(),
+			menuWidget: $sp.getWidgetFromInstance(serviceDomainGR.menu.toString())
+		});
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-18 16:05:58</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>541391efdbcf62006ab3d790cf961932</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Enterprise Shared Service Directory</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_widget_541391efdbcf62006ab3d790cf961932</sys_update_name>
+        <sys_updated_by>chris.hann</sys_updated_by>
+        <sys_updated_on>2016-11-23 14:41:10</sys_updated_on>
+        <template><![CDATA[<div class="x-snc-snsc-ssp-homemenu">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4" ng-repeat="domain in data.domains">
+        <sp-widget widget="domain.menuWidget"></sp-widget>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

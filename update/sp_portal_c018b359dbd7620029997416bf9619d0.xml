@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables>$brand-primary: #428bca;
+$body-bg: #f0f3f4;
+$state-success-text: #5cb85c;
+$sp-homepage-bg: #F0F3F4;
+$sp-navbar-divider-color: #EA3592;
+$text-color: #717171;
+$sp-logo-margin-y: .5rem;
+$navbar-inverse-link-hover-color: #ffffff;
+$panel-bg: #fff;
+$brand-success: #5cb85c;
+$navbar-inverse-bg: #3a3f51;
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
+$sp-tagline-color: #ffffff;
+$navbar-inverse-link-color: #bdc0c4;
+$brand-info: #5bc0de;
+$link-color: #428bca;
+$sp-logo-margin-x: 15px;
+$btn-default-bg: #fff;
+$text-muted: #979797;
+</css_variables>
+        <default>false</default>
+        <homepage display_value="sharedservices2">dd508975db13a20029997416bf961906</homepage>
+        <icon/>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page display_value="login">6995a144cb11120000f8d856634c9c25</login_page>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config><![CDATA[[{
+	"tagline": {
+		"table" : "sp_instance",
+		"sys_id" : "5b149fd4dbd7e2006ab3d790cf961935",
+		"field" : "title"
+	},
+	"hero_background": {
+		"table" : "sp_container",
+		"sys_id" : "4d210167dbcf62006ab3d790cf961938",
+		"field" : "background_image"
+	},
+	"hero_background_color": {
+		"table" : "sp_container",
+		"sys_id" : "4d210167dbcf62006ab3d790cf961938",
+		"field" : "background_color"
+	}
+}]]]></quick_start_config>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sp_chat_queue display_value="Shared Services Support">e2159e81db9b26006ab3d790cf96190e</sp_chat_queue>
+        <sp_rectangle_menu/>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-24 14:31:49</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>c018b359dbd7620029997416bf9619d0</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Process Portal</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_portal_c018b359dbd7620029997416bf9619d0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-25 14:28:30</sys_updated_on>
+        <theme display_value="Shared Services">49a174afdb8f62006ab3d790cf961989</theme>
+        <title>Process Portal</title>
+        <url_suffix>process</url_suffix>
+    </sp_portal>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/gif</content_type>
+        <encryption_context/>
+        <file_name>logo</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>949</size_bytes>
+        <size_compressed>972</size_compressed>
+        <sys_created_by>julia.roberts</sys_created_by>
+        <sys_created_on>2017-01-16 16:10:54</sys_created_on>
+        <sys_id>d80bc5263790f20063dd1d8643990ec8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>julia.roberts</sys_updated_by>
+        <sys_updated_on>2017-01-16 16:10:54</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>c018b359dbd7620029997416bf9619d0</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="d80bc5263790f20063dd1d8643990ec8">d80bc5263790f20063dd1d8643990ec8</sys_attachment>
+        <sys_created_by>julia.roberts</sys_created_by>
+        <sys_created_on>2017-01-16 16:10:54</sys_created_on>
+        <sys_id>1c0bc5263790f20063dd1d8643990ec8</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>AbUDSvxHSUY4OWFeAEgAxAAAAAAJ////wyAmWlhX55Yn52mjzMzM4FgsHx8elZKSyl4t9L2G9L4i5X8udXJywzctQkA/uba22mwpEhERNzU14uDg2EwrhIGB8Jw1pqSj0TsqTkxLZmZmKyoqAAAAAAAAIfkEAAcA/wAsAAAAAF4ASAAABf9gII5kaZ5oqpJY676wu850ba9xDt9875u6IOZHLNKEOqNySWo4n9Doc0FlWn/SbJS6uHpv2nCD+y3PxFqyeX1CZ9XsuEhCr9vvdYKewe/35Vd4gnd6BH6HgFaDixKFh36JTIyDjo98kUuTgpWWmEqaeJyPnkaghHuWDKRFpnaiiKs/rXmonbE+Crm6u7mhtaO3PbzDCr6GqcHCxLvGqarJN8vMp8e20DUP2drb2Rre3xbhB+Pk5AXn59cq3OwP3+Di5eXo6eoo7dzv3uEW8vP09u7h06ZPAz9/5gAGNDGQoL6DCA/QK7CQYUN3D+MhnFixxEWM7yBuVNhRxMeCIv3/cSxp8iJKjSpJRhJAs6bNmzVdZuwXcSUmnEBvsvQRtKiAoT2MBkXKQylQplCjSp1KtarVq1izat3KpMIFCBQoiPC6gQIEDgZSRHDAgYOJCG3bph3LISyHCm/rhrU7l8naDgACB67AYYJgwW5HrIVgWLAJCoczjOBwWOyIBAgOa96AV0lmzYE/gwawQcTowCUuaJYsgvLhCCI2aJ6wQTQAy0ZO6xacIIBuEhUaC2YdwPXwALIPd8AL+XBvIxkyOADtIEOC5Jo7iIiOHfWIAaCJGw9sYPrhCZ2bI2aSATSJCMIFw26tWfFo8ZWDa04cQH1g/tC5R8J4gTkwWX0i+Hcc/32CGaCaZvP1d15fASI4ggGgDXDgYSKYF96GABjYnXfbMQYABBEq0Z6FI4CGG4EB6AcAeJGNBdiJCQoYx4oclqDgi/UlRwGPgbGW3HI5srgGkSSOcON6DA7XIJOSPThBhAoC0BkbTAJgAnUgBnajW1TCF9gFJGT5HJc6ihABaH0RGNp2miVwo4YDuihHlyWMiFtx99GpXGB/ioAhaGia4CB7bXaZopwQjNAlAOidAMFoBkoqW6FE8BmjnImGSWlfk6YIXHyCTRCWcJz+0CUFtgkWqqgAdpkpCmbuRiijupJGYZjakcBkaSsYkKVyF2xZ4WFxtZWAsiVk0KypBjR7VzINEQxAQQfcmuXAryq2yZUKno67QrnmpoBuuiesy+4IFxyr6qzvHitYq+ZeYK219LIbAgA75SmksrUDAAA=</data>
+        <length>1284</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="d80bc5263790f20063dd1d8643990ec8">d80bc5263790f20063dd1d8643990ec8</sys_attachment>
+        <sys_created_by>julia.roberts</sys_created_by>
+        <sys_created_on>2017-01-16 16:10:54</sys_created_on>
+        <sys_id>9c0bc5263790f20063dd1d8643990ec8</sys_id>
+    </sys_attachment_doc>
+</record_update>

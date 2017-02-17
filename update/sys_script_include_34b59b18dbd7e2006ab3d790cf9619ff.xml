@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_snsc_ssp.ServiceDomainConfig</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ServiceDomainConfig</name>
+        <script><![CDATA[var ServiceDomainConfig = Class.create();
+
+ServiceDomainConfig.getAll = function() {
+	var domainGR = new GlideRecord('x_snc_snsc_ssp_service_domain');
+	domainGR.addActiveQuery();
+	domainGR.orderBy('order');
+	domainGR.query();
+	
+	var serviceDomains = [];
+	
+	while (domainGR.next()) {
+		serviceDomains.push({
+			sys_id: domainGR.getUniqueValue(),
+			name: domainGR.name.getDisplayValue(),
+			portal: {
+				sys_id: domainGR.portal.toString(),
+				url_suffix: domainGR.portal.url_suffix.toString(),
+				kb_knowledge_base: domainGR.portal.kb_knowledge_base.toString(),
+				sqanda_knowledge_base: domainGR.portal.sqanda_knowledge_base.toString(),
+				sc_catalog: domainGR.portal.sc_catalog.toString()
+			}
+		});
+	}
+	
+	return serviceDomains;
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-21 09:29:06</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>34b59b18dbd7e2006ab3d790cf9619ff</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>ServiceDomainConfig</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sys_script_include_34b59b18dbd7e2006ab3d790cf9619ff</sys_update_name>
+        <sys_updated_by>chris.hann</sys_updated_by>
+        <sys_updated_on>2016-11-21 09:29:22</sys_updated_on>
+    </sys_script_include>
+</record_update>

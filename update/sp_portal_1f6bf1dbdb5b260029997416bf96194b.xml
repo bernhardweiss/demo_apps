@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables>$brand-primary: #428bca;
+$body-bg: #f0f3f4;
+$state-success-text: #5cb85c;
+$sp-homepage-bg: #F0F3F4;
+$sp-navbar-divider-color: #EA3592;
+$text-color: #717171;
+$sp-logo-margin-y: .5rem;
+$navbar-inverse-link-hover-color: #ffffff;
+$panel-bg: #fff;
+$brand-success: #5cb85c;
+$navbar-inverse-bg: #3a3f51;
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
+$sp-tagline-color: white;
+$navbar-inverse-link-color: #bdc0c4;
+$brand-info: #5bc0de;
+$link-color: #428bca;
+$sp-logo-margin-x: 15px;
+$btn-default-bg: #fff;
+$text-muted: #979797;
+</css_variables>
+        <default>false</default>
+        <homepage display_value="suppliers">a50db11fdb5b260029997416bf9619db</homepage>
+        <icon/>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page display_value="login">6995a144cb11120000f8d856634c9c25</login_page>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config><![CDATA[[{
+	"tagline": {
+		"table" : "sp_instance",
+		"sys_id" : "5b149fd4dbd7e2006ab3d790cf961935",
+		"field" : "title"
+	},
+	"hero_background": {
+		"table" : "sp_container",
+		"sys_id" : "4d210167dbcf62006ab3d790cf961938",
+		"field" : "background_image"
+	},
+	"hero_background_color": {
+		"table" : "sp_container",
+		"sys_id" : "4d210167dbcf62006ab3d790cf961938",
+		"field" : "background_color"
+	}
+}]]]></quick_start_config>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sp_chat_queue display_value="Shared Services Support">e2159e81db9b26006ab3d790cf96190e</sp_chat_queue>
+        <sp_rectangle_menu display_value="SP Header Menu">d150fd31cb10020000f8d856634c9ce6</sp_rectangle_menu>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-30 10:35:06</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>1f6bf1dbdb5b260029997416bf96194b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Supplier Portal</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_portal_1f6bf1dbdb5b260029997416bf96194b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-30 10:47:04</sys_updated_on>
+        <theme display_value="Shared Services">49a174afdb8f62006ab3d790cf961989</theme>
+        <title>Supplier Portal</title>
+        <url_suffix>supplier</url_suffix>
+    </sp_portal>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>logo</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>3112</size_bytes>
+        <size_compressed>3135</size_compressed>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-30 11:37:29</sys_created_on>
+        <sys_id>8db90693db9b260029997416bf961987</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-30 11:37:29</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>1f6bf1dbdb5b260029997416bf96194b</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="8db90693db9b260029997416bf961987">8db90693db9b260029997416bf961987</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-30 11:37:29</sys_created_on>
+        <sys_id>cdb90693db9b260029997416bf961987</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>3736</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="8db90693db9b260029997416bf961987">8db90693db9b260029997416bf961987</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-30 11:37:29</sys_created_on>
+        <sys_id>41b90693db9b260029997416bf961988</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>7j0/EWugeCyKl8Qa3oDG+8cQThd6tu+CrhDCARAeLXnpYVQmwPcgfxIrC66xnlQ7KlNBv0hIO48PHUjEKoC0mZwc/iJWQ3qF9RCri+C1yiDvJR4S64LwvANlYkk9UplYBiFtsJ97hY9DD5cPs2RCtWrjVSv9/AyuD4KeOq+ROlAZydutErG+E/Lcl7vVw1IGw0DPq4BYIRGTHUIPg4VfFNK+ALrVEF4hpWWNx/ZwbSPougvpO8NvfyPlaSfon/bC0MmQpr2gWwK6V6S4G+S8CPkJhaqyFAjD7jsark+C+00V/u2ZkvCG/l6p/fkSXN8N4WdV0s7x4nlnQ17GCrp+oFsm6J6iso41WaiwE6aSuBOB61Pgt3uDA2HPuwKu/Q6uzRA8oJznnv8DRAbRGGI0MsEAAAAASUVORK5CYIIUgf1DKAwAAA==</data>
+        <length>436</length>
+        <position>2</position>
+        <sys_attachment display_value="logo" sys_id="8db90693db9b260029997416bf961987">8db90693db9b260029997416bf961987</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-30 11:37:29</sys_created_on>
+        <sys_id>c1b90693db9b260029997416bf961988</sys_id>
+    </sys_attachment_doc>
+</record_update>

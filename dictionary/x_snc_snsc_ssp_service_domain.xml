@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="update_synch=true" extends="sys_metadata" label="Service Domain" max_length="40" name="x_snc_snsc_ssp_service_domain" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="BG Image" max_length="32" name="bg_image" reference="db_image" type="reference"/>
+        <element label="Logo" max_length="40" name="logo" type="user_image"/>
+        <element label="Menu" max_length="32" name="menu" reference="sp_instance_menu" type="reference"/>
+        <element display="true" label="Name" max_length="40" name="name" type="translated_text"/>
+        <element default="100" label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Portal" max_length="32" name="portal" reference="sp_portal" type="reference"/>
+        <index name="index">
+            <element name="menu"/>
+        </index>
+        <index name="index2">
+            <element name="portal"/>
+        </index>
+        <index name="index3">
+            <element name="bg_image"/>
+        </index>
+    </element>
+</database>

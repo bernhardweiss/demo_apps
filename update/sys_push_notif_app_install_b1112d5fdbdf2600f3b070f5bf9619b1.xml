@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_push_notif_app_install">
+    <sys_push_notif_app_install action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <last_registered_on>2016-12-02 12:37:36</last_registered_on>
+        <sys_class_name>sys_push_notif_app_install</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-30 08:40:03</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>b1112d5fdbdf2600f3b070f5bf9619b1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>754f300ad7d6df78a415a88a445f88f621f72d9418002dc9efd56b9e3d82a807</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_push_application_id display_value="ServiceNow Mobile Application">ab704041ff1102009738ffffffffff33</sys_push_application_id>
+        <sys_push_platform_id display_value="Apple">20e71f30ff0002009738ffffffffff6b</sys_push_platform_id>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sys_push_notif_app_install_b1112d5fdbdf2600f3b070f5bf9619b1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-12-02 12:37:36</sys_updated_on>
+        <sys_user_id display_value="Simon Adams">6816f79cc0a8016401c5a33be04be441</sys_user_id>
+        <token>754f300ad7d6df78a415a88a445f88f621f72d9418002dc9efd56b9e3d82a807</token>
+    </sys_push_notif_app_install>
+</record_update>

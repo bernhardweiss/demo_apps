@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, $sce, $location, spUtil, $rootScope) {
+	spUtil.setSearchPage($scope.data.t);
+		
+	$scope.getBGImage = function(item) {
+		return {"background-image": "url('" + item.picture + "')"};
+	}
+	
+	var getDomainForItem = function(item) {
+		switch (item.type) {
+			case 'kb':
+				return $scope.data.service_domains.filter(function(domain) {
+					return item.kb_knowledge_base.value == domain.portal.kb_knowledge_base;
+				})[0];
+			case 'sc':
+				return $scope.data.service_domains.filter(function(domain) {
+					return item.sc_catalogs.indexOf(domain.portal.sc_catalog) != -1;
+				})[0];
+			case 'qa':
+				return $scope.data.service_domains.filter(function(domain) {
+					return item.kb_knowledge_base.value == domain.portal.sqanda_knowledge_base || domain.portal.kb_knowledge_base;
+				})[0];
+			default:
+				return;
+		}
+	}
+	
+	$scope.getDomainName = function(item) {
+		var domain = getDomainForItem(item);
+		
+		if (!domain)
+			return '';
+		
+		return domain.name;
+	}
+	
+	$scope.getPortalPath = function(item) {
+		var domain =  getDomainForItem(item);
+
+		if (!domain)
+			return $location.path();
+		
+		return domain.portal.url_suffix;
+	}
+	
+
+	$scope.highlight = function(haystack, needle) {
+		if (!haystack)
+			return "";
+
+		if (!needle)
+			return $sce.trustAsHtml(haystack);
+
+		return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
+			return '<mark class="highlight">' + match + '</mark>';
+		}));
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>a.question-tag {
+    color: #39739d;
+    background-color: #e1ecf4;
+    border: 1px solid #e1ecf4;
+    display: inline-block;
+    margin: 4px 4px 4px 0;
+    border-radius: 0;
+    text-align: center;
+    line-height: 1;
+    padding: .4em .5em;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>x_snc_snsc_ssp-search_results</id>
+        <internal>false</internal>
+        <link/>
+        <name>Shared Services Search Results</name>
+        <option_schema>[{"hint":"Show search result relative ranking","name":"show_score","label":"Show score","type":"boolean"},{"hint":"Maximum number of search results when not specifying a search group (default 30)","name":"max_all","label":"Max results for All search","type":"integer"},{"hint":"Maximum number of search results when specifying a search group (default 15)","name":"max_group","label":"Max results for single search group","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' variable
+data.showPrices = $sp.showCatalogPrices();
+data.q = $sp.getParameter('q');
+data.t = $sp.getParameter('t');
+
+data.results = [];
+
+if (data.t)
+  data.limit = options.max_group || 15;
+else 
+  data.limit = options.max_all || 30;
+
+
+data.service_domains = ServiceDomainConfig.getAll();
+
+// NOTE: No support sp_search_group, cannot access from non-global scope :(
+var searchProcessor = new CrossDomainSearch();
+searchProcessor.setLimit(data.limit);
+
+if (data.t == 'kb' || !data.t) {
+  var kb = searchProcessor.getKB(data.q);
+
+  data.article_count = kb.getRowCount();
+  while (kb.next()) {
+    // Does user have permission to see this item?
+    if (!$sp.canReadRecord("kb_knowledge", kb.getUniqueValue()))
+      continue;
+
+    var article = {};
+    $sp.getRecordDisplayValues(article, kb, 'sys_id,number,short_description,text');
+    article.publishedUTC = kb.getValue('published');
+    article.type = "kb";
+    if (!article.text)
+      article.text = "";
+    article.text = $sp.stripHTML(article.text) + "";
+    article.text = article.text.substring(0, 200);
+    article.score = parseInt(kb.ir_query_score.getDisplayValue());
+		article.kb_knowledge_base = $sp.getField(kb, 'kb_knowledge_base');
+    data.results.push(article);
+  }
+  $sp.logSearch('kb_knowledge', data.q, kb.getRowCount());
+}
+
+
+if (gs.isLoggedIn() && (data.t == 'sc' || !data.t)) {
+ 	var sc = searchProcessor.getCatalogItems(data.q);
+ 
+  while (sc.next()) {
+    // Does user have permission to see this item?
+		// Deactivate for now: Cross-scope issues
+//    var catItem = GlideappCatalogItem.get(sc.sys_id.getDisplayValue());
+//    if (!catItem.canViewOnSearch())
+ //     continue;
+
+    var item = {};
+    $sp.getRecordDisplayValues(item, sc, 'name,short_description,picture,price,sys_id,sys_class_name');
+    item.score = parseInt(sc.ir_query_score.getDisplayValue());
+    item.page = "sc_cat_item";
+    item.type = "sc";
+		item.sc_catalogs = sc.sc_catalogs.toString();
+    if (sc.getRecordClassName() == "sc_cat_item_content") {
+      var gr = new GlideRecord('sc_cat_item_content');
+      gr.get(sc.getUniqueValue());
+      $sp.getRecordValues(item, gr, 'url,content_type,kb_article');
+      item.type = "sc_content";
+    } else if (sc.getRecordClassName() == "sc_cat_item_guide") {
+      item.page = "sc_cat_item_guide";
+    }
+    data.results.push(item);
+  }
+  $sp.logSearch('sc_cat_item', data.q, sc.getRowCount());
+}
+
+data.sqandaEnabled = gs.getProperty('glide.sp.socialqa.enabled', false) === 'true';
+
+if (data.sqandaEnabled && (data.t == 'qa' || !data.t)) {
+  var questionGR = searchProcessor.getSquanda(data.q);
+
+  while (questionGR.next()) {
+    if (!$sp.canReadRecord(questionGR))
+      continue;
+
+    var question = {};
+    question.type = "qa";
+    $sp.getRecordDisplayValues(question, questionGR, 'question,votes,question_details,sys_id');
+    question.createdUTC = questionGR.getValue('sys_created_on');
+    question.text = (question.question_details) ? $sp.stripHTML(question.question_details) : "";
+    question.text = question.text.substring(0,200);
+    question.label = question.question;
+		question.kb_knowledge_base = $sp.getField(kb, 'kb_knowledge_base');
+
+    question.votes = 0;
+    var voteGR = new GlideRecord("kb_social_qa_vote");
+    voteGR.addQuery("reference_id", questionGR.getUniqueValue());
+    voteGR.query();
+    while (voteGR.next())
+      question.votes = (voteGR.getValue("up_vote") === "1") ? question.votes + 1 : question.votes - 1;
+
+    question.votes = question.votes;
+
+    question.tags = [];
+    var labelEntryGR = new GlideRecord("sqanda_tag_entry");
+    labelEntryGR.addQuery("reference_id", question.sys_id);
+    labelEntryGR.query();
+    while (labelEntryGR.next()) {
+      var labelGR = labelEntryGR.getElement("tag").getRefRecord();
+      question.tags.push({
+        sys_id: labelGR.getUniqueValue(),
+        name: labelGR.getValue("name")
+      })
+    }
+
+    data.results.push(question);
+  }
+  $sp.logSearch('kb_social_qa_question', data.q, questionGR.getRowCount());
+}
+
+function getField(gr, name) {
+  var f = {};
+  f.display_value = gr.getDisplayValue(name);
+  f.value = gr.getValue(name);
+  var ge = gr.getElement(name);
+  if (ge == null)
+    return f;
+
+  f.type = ge.getED().getInternalType()
+  f.label = ge.getLabel();
+  return f;
+}]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-21 08:12:51</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>27848b9cdb97e2006ab3d790cf961965</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>Shared Services Search Results</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_widget_27848b9cdb97e2006ab3d790cf961965</sys_update_name>
+        <sys_updated_by>chris.hann</sys_updated_by>
+        <sys_updated_on>2016-11-21 10:54:44</sys_updated_on>
+        <template><![CDATA[<div>
+
+  <div class="panel panel-default">
+
+    <div ng-if="data.results.length==0">
+      <div class="panel-heading"><h4 class="panel-title">${No results}</h4></div>
+      <div class="panel-body wrapper break-word">
+        <p>${Your search - <b>{{data.q}}</b> - did not match any documents}</p>
+        <p>${Suggestions}:</p>
+        <ul>
+          <li>${Make sure all words are spelled correctly}</li>
+          <li>${Try different, more general, or fewer keywords}</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div ng-if="data.results.length>0" class="panel-heading break-word"><h4 class="panel-title">${Search results for '{{data.q}}'}</h4></div>
+
+    <div ng-repeat="item in data.results | orderBy:'score':true | limitTo:data.limit" class="panel-body b-b ">
+
+      <div ng-if="item.type == 'kb'">
+        <a href="{{::getPortalPath(item)}}?id=kb_article&amp;sys_id={{item.sys_id}}" class="h4 text-primary m-b-sm block">
+          <i class="fa fa-book m-r-sm"></i>
+          <span ng-bind-html="highlight(item.short_description, data.q)"></span></a>
+        <p ng-bind-html="highlight(item.text, data.q)"></p>
+        <span class="text-muted">{{::getDomainName(item)}} </span>
+        <span class="text-muted">${Article}: {{item.number}}</span>
+        <span class="text-muted">
+          <span class="m-l-xs m-r-xs"> &middot; </span>
+          ${Published}: <sn-day-ago date="item.publishedUTC"/>
+        </span>
+      </div>
+
+      <div ng-if="item.type == 'sc_content'">
+        <a ng-if="item.content_type == 'external'" ng-href="{{::item.url}}" target="_blank" class="h4 text-primary m-b-sm block"><span ng-bind-html="highlight(item.name, data.q)"></span> ➚</a>
+        <a ng-if="item.content_type == 'kb'" ng-href="{{::getPortalPath(item)}}?id=kb_article&sys_id={{::item.kb_article}}" class="h4 text-primary m-b-sm block">
+        	<i class="fa m-r-sm fa-file-text-o"></i>
+          <span ng-bind-html="highlight(item.name, data.q)"></span>
+        </a>
+        <a ng-if="item.content_type == 'literal'" ng-href="{{::getPortalPath(item)}}?id={{item.page}}&sys_id={{item.sys_id}}" class="h4 text-primary m-b-sm block">
+          <i class="fa m-r-sm fa-file-text-o"></i>
+          <span ng-bind-html="highlight(item.name, data.q)"></span></a>
+        <div ng-style="getBGImage(item)" ng-if="item.picture" class="img-responsive m-r item-image pull-left"></div>
+        <p ng-bind-html="highlight(item.short_description, data.q)"></p>
+      </div>
+      
+      <div ng-if="item.type == 'sc'">
+        <a href="{{::getPortalPath(item)}}?id={{item.page}}&amp;sys_id={{item.sys_id}}" class="h4 text-primary m-b-sm block">
+          <i class="fa m-r-sm fa-shopping-cart"></i>
+          <span ng-bind-html="highlight(item.name, data.q)"></span></a>
+        <div ng-style="getBGImage(item)" ng-if="item.picture" class="img-responsive m-r item-image pull-left"></div>
+        <p ng-bind-html="highlight(item.short_description, data.q)"></p>
+        <span class="text-muted m-r-sm" ng-if="data.showPrices && item.price != '$0.00'">{{item.price}}</span>
+      </div>
+      
+      <div ng-if="item.type == 'qa'">
+        <a href="{{::getPortalPath(item)}}?id=kb_social_qa_question&amp;question_id={{item.sys_id}}" class="h4 text-primary m-b-sm block">
+          <i class="fa fa-comments-o m-r-sm"></i>
+          <span ng-bind-html="highlight(item.label, data.q)"></span></a>
+        <p ng-bind-html="highlight(item.text, data.q)"></p>
+        <div>
+          <a ng-repeat="tag in item.tags" ng-href="?id=sqa_tagged_questions&sys_id={{tag.sys_id}}" class="question-tag">{{tag.name}}</a>
+        </div>
+        <span class="text-muted">${Asked} <sn-day-ago date="item.createdUTC"/></span>
+        <span class="text-muted">
+          <span class="m-l-xs m-r-xs" ng-if="!$first"> &middot; </span>
+          ${Score}: {{item.votes}}
+        </span>
+      </div>
+      
+      <div ng-if="item.type == 'rec'">
+        <a href="{{::getPortalPath(item)}}?id={{item.page}}&amp;sys_id={{item.sys_id}}&amp;table={{item.table}}" class="h4 text-primary m-b-sm block">
+          <span ng-bind-html="highlight(item.label, data.q)"></span>
+        </a>
+        <span class="text-muted" ng-repeat="f in item.fields | limitTo: 4">
+          <span class="m-l-xs m-r-xs" ng-if="!$first"> &middot; </span>
+          {{f.label}}: <span ng-bind-html="highlight(f.display_value, data.q)"></span>
+        </span>
+      </div>
+
+      <div class="clearfix"></div>
+
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

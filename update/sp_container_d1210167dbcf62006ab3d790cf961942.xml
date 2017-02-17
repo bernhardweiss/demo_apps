@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name>padding-top-lg</class_name>
+        <container_class_name/>
+        <name>Shared Service Index1 - Container 4</name>
+        <order>4</order>
+        <sp_page/>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-18 14:43:16</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d1210167dbcf62006ab3d790cf961942</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Shared Service Index1 - Container 4</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_container_d1210167dbcf62006ab3d790cf961942</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-24 17:01:37</sys_updated_on>
+        <width>container</width>
+    </sp_container>
+</record_update>

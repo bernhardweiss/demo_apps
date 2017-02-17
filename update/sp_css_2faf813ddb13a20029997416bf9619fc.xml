@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>.v913a8db7db87a2006ab3d790cf961916 .panel.panel-bg-image {&#13;
+  background-position: top right;&#13;
+}</css>
+        <name>TN-Overrides</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-11-25 15:34:06</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>2faf813ddb13a20029997416bf9619fc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TN-Overrides</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_css_2faf813ddb13a20029997416bf9619fc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-11-25 15:34:06</sys_updated_on>
+    </sp_css>
+</record_update>

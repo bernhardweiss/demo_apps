@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition/>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph/>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>My Facilities Requests</label>
+        <order>2000</order>
+        <record_script><![CDATA[var t = {}
+t.items = [];
+t.count = 0;
+
+var hrc = new GlideRecord('facilities_request');
+if (hrc.isValid()) {
+  hrc.addActiveQuery();
+  var qc = hrc.addQuery('opened_by', gs.getUserID());  
+  qc.addOrCondition('opened_for', gs.getUserID());  
+  hrc.orderByDesc('sys_created');
+  hrc.setLimit(3);
+  hrc.query();
+  
+  while (hrc.next()) {
+    var a = {};
+    a.sys_id = hrc.getValue('sys_id');
+    a.sys_updated_on = hrc.getValue('sys_updated_on');
+    a.display_value = hrc.getValue('short_description');
+
+    if (hrc.short_description.nil())
+      a.display_value = "(No description)";
+    
+    a.additional_fields = $sp.getFields(hrc, 'number,state');
+    
+    a.number = hrc.getValue('number');
+    a.__table = hrc.getTableName();
+
+    a.type = 'record';
+    a.sortOrder = new GlideDateTime(hrc.sys_updated_on).getNumericValue();
+    a.href = '/hrsp?id=ticket&sys_id=' + a.sys_id;
+
+    t.items.push(a);
+    t.count++;
+  }
+}
+
+t.items.sort(function(a, b) {
+ 	return b.sortOrder - a.sortOrder;
+});
+new global.JSON().encode(t);]]></record_script>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page display_value="ticket">84af292247132100ba13a5554ee4909e</sp_page>
+        <sp_rectangle_menu display_value="Domain Menu: Facilities Services">f81bda37dbc7a200409e7a1ebf9619fb</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>chris.hann</sys_created_by>
+        <sys_created_on>2016-11-19 16:06:32</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>0bcd52b7dbc7a200409e7a1ebf961929</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Facilities Requests</sys_name>
+        <sys_package display_value="Shared Service Portal" source="x_snc_snsc_ssp">4161342fdb8f62006ab3d790cf9619e9</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Shared Service Portal">4161342fdb8f62006ab3d790cf9619e9</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_0bcd52b7dbc7a200409e7a1ebf961929</sys_update_name>
+        <sys_updated_by>chris.hann</sys_updated_by>
+        <sys_updated_on>2016-11-19 16:06:32</sys_updated_on>
+        <table/>
+        <type>scripted</type>
+        <url/>
+    </sp_rectangle_menu_item>
+</record_update>
